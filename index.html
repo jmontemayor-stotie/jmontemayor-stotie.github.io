@@ -4,68 +4,211 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfoliot</title>
+  <title>Jodi Portfolio</title>
+
+  <style>
+    /* RESET */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* BACKGROUND ANIMATION */
+    body::before {
+      content: "";
+      position: fixed;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, #f4f5fe, #4b9a7d, #22c55e);
+      animation: bgMove 10s infinite alternate;
+      z-index: -1;
+    }
+
+    @keyframes bgMove {
+      0% {
+        transform: translate(0, 0);
+      }
+
+      100% {
+        transform: translate(-25%, -25%);
+      }
+    }
+
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 50px;
+      position: fixed;
+      width: 100%;
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      font-weight: bold;
+    }
+
+    .nav-links a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #a7f3d0;
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* GLASS CARD */
+    .glass {
+      backdrop-filter: blur(15px);
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      animation: fadeIn 1.5s ease;
+    }
+
+    /* PROFILE */
+    .circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 2px solid white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin: auto;
+      margin-bottom: 20px;
+    }
+
+    /* TEXT */
+    .subtitle {
+      opacity: 0.8;
+    }
+
+    /* SKILLS */
+    .skills span {
+      border: 1px solid white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      margin: 5px;
+      display: inline-block;
+    }
+
+    /* BUTTON */
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 25px;
+      background: #22c55e;
+      color: white;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #16a34a;
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 500px;
+    }
+
+    /* ANIMATION */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- PROFILE IMAGE -->
-  <div align="center">
-    <img src="C:\Users\Jodi Montemayor\OneDrive\Desktop\WD\image\profile.jpg" width="150"
-      style="border-radius: 50%; border: 3px solid #2ecc71;">
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <h2 class="logo">Jodi</h2>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
   </div>
 
-  <!-- HEADER -->
-  <h1 align="center" style="color:#27ae60;">💚 [Jodi Montemayor]</h1>
-  <p align="center"><b>🌿 eto, nagaaral pa lang | Tinkerbell 🌿</b></p>
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="glass">
+      <div class="circle">JM</div>
+      <h1>Jodi Montemayor</h1>
+      <p class="subtitle">IT Student • Future Web Developer</p>
 
-  <hr style="border:1px solid #2ecc71;">
+      <div class="skills">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>Python</span>
+      </div>
 
-  <!-- ABOUT -->
-  <h2 style="color:#27ae60;">🌱 About Me</h2>
-  <p>
-    Hi! I'm a passionate in terms of over sa katamaran at puro saya mwehehehe
-    I'm currently learning and building projects to improve my skills and grow in tech.
-  </p>
+      <a href="#projects" class="btn">View Projects</a>
+    </div>
+  </section>
 
-  <!-- SKILLS -->
-  <h2 style="color:#27ae60;">🛠️ Skills</h2>
-  <p>
-    💻 HTML &nbsp; | &nbsp;
-    🎨 CSS &nbsp; | &nbsp;
-    ⚡ JavaScript &nbsp; | &nbsp;
-    🔧 Git & GitHub
-
-    #emelngto, soon hindi na
-  </p>
+ <section id=" About" class="section"
+ 
 
   <!-- PROJECTS -->
-  <h2 style="color:#27ae60;">💎 Projects</h2>
+  <section id="projects" class="section">
+    <h2>Projects</h2>
 
-  <div style="background:#ffffff; padding:15px; border-radius:10px; margin-bottom:10px; border-left:5px solid #2ecc71;">
-    <h3>💍 Likhana Jewelry Website</h3>
-    <p>A stylish and elegant jewelry website showcasing accessories.</p>
-  </div>
+    <div class="card">
+      💍 <b>Likhana Jewelry Website</b><br>
+      Elegant jewelry shop design
+    </div>
 
-  <div style="background:#ffffff; padding:15px; border-radius:10px; margin-bottom:10px; border-left:5px solid #2ecc71;">
-    <h3>🌐 Portfolio Website</h3>
-    <p>My personal website (coming soon).</p>
-  </div>
+    <div class="card">
+      🌐 <b>Portfolio Website</b><br>
+      Personal portfolio project
+    </div>
+  </section>
 
   <!-- CONTACT -->
-  <h2 style="color:#27ae60;">💚 Contact</h2>
-  <p> 📧 jodimontemayor041@email.com</p>
-  <p> 📧 09900011111</p>
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <div class="card">
+      📧 jodimontemayor041@gmail.com<br>
+      📱 09123456789
+    </div>
+  </section>
 
-  <hr style="border:1px solid #2ecc71;">
-
-  <p align="center" style="color:#2ecc71;">
-    🌿 <i>"Building my future one line of code at a time."</i> 🌿
-  </p>
-
-  </div>
 </body>
 
 </html>
-<div
-  style="max-width: 800px; margin: auto; padding: 25px; border-radius: 15px; background: #f0fff4; border: 2px solid #2ecc71; font-family: Arial;">
