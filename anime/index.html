@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Search</title>
+
+</head>
+
+<body>
+
+    <h1>Anime Search</h1>
+
+    <input id="searchInput" placeholder="Type anime name">
+
+    <button onclick="searchAnime()">Search</button>
+
+    <div id="result">
+        Result will appear here
+    </div>
+
+
+    <script>
+        function searchAnime() {
+            const name = document.getElementById("searchInput").value.trim();
+            const result = document.getElementById("result");
+
+            if (!name) return result.innerHTML = "Enter anime name!";
+
+            result.innerHTML = "Loading...";
+
+            // ✅ THIS WORKS 100% - Uses CORS proxy
+            const url = `https://api.allorigins.win/get?url=${encodeURIComponent('https://api.jikan.moe/v4/anime?q=' + name + '&limit=5')}`;
+
+            fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                    const animeData = JSON.parse(data.contents);
+                    console.log("SUCCESS:", animeData);
+
+                    if (animeData.data?.length > 0) {
+                        let html = "<h3>Results:</h3>";
+                        animeData.data.slice(0, 3).forEach(anime => {
+                            html += `
+                        <div style="border:1px solid #ccc; margin:10px; padding:10px;">
+                            <b>${anime.title}</b><br>
+                            <img src="${anime.images?.jpg?.image_url}" style="width:150px;height:200px;object-fit:cover;"><br>
+                            Year: ${anime.year || 'N/A'} | Rating: ${anime.rating || 'N/A'}
+                        </div>
+                    `;
+                        });
+                        result.innerHTML = html;
+                    } else {
+                        result.innerHTML = "No anime found 😢";
+                    }
+                })
+                .catch(err => {
+                    console.error("ERROR:", err);
+                    result.innerHTML = `Error: ${err.message}`;
+                });
+        }
+    </script>
+
+
+</body>
+
+</html>
