@@ -12,15 +12,27 @@
 
 <body>
 
-    <!-- navbar -->
-    <nav class="navbar navbar-dark bg-dark" id="main_navbar">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">home</a>
-            <a class="btn btn-outline-light" href="quotes.html">quotes</a>
-        </div>
-    </nav>
+    
+   <nav class="navbar navbar-dark px-3 d-flex align-items-center">
 
-    <!-- main container -->
+    <!-- LOGO -->
+    <a class="navbar-brand fw-bold" href="index.html">
+        animeSearch
+    </a>
+
+    <!-- MENU (RIGHT SIDE) -->
+    <div class="ms-auto d-flex gap-4">
+
+        <a href="home.html" class="nav-link text-white">Home</a>
+
+        <a href="index.html" class="nav-link text-white">Main</a>
+
+        <a href="anime_character.html" class="nav-link text-white">Characters</a>
+
+    </div>
+
+</nav>
+
     <div class="container mt-4" id="main_container">
 
         <h2 class="text-center mb-4" id="page_title">one_piece_characters</h2>
@@ -29,7 +41,7 @@
 
     </div>
 
-    <<script>
+    <script>
         async function load_one_piece_characters() {
 
         const character_container = document.getElementById("character_container");
@@ -38,7 +50,7 @@
         const response = await fetch("https://api.api-onepiece.com/v2/characters/en");
         const one_piece_data = await response.json();
 
-        console.log(one_piece_data); // check if data exists
+        console.log(one_piece_data);  
 
         one_piece_data.forEach(character_item => {
 
