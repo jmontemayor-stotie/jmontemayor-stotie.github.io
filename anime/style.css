@@ -1,37 +1,55 @@
-
 .navbar {
     background-color: #0c0c0c !important;
     padding: 20px;
 }
 
-
-#hero {
+/*main page*/
+.hero-section {
     height: 50vh;
-    background-size: cover;
-    background-position: center;
+    background: url("https://images5.alphacoders.com/606/thumb-1920-606284.jpg") center/cover no-repeat;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 
-#hero::before {
+.hero-section::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.5);
 }
 
 
-.hero-content {
+.hero-section>div {
     position: relative;
     z-index: 2;
-    text-align: center;
-    color: white;
-    width: 100%;
 }
-body {
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+.glass-card input {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+}
+
+.glass-card input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.main-page{
+    background-color: white;
+}
+
+
+/* home page */
+.home-page body {
     margin: 0;
     font-family: Arial;
     background: #0d0d0d;
@@ -40,9 +58,8 @@ body {
 
 
 .navbar {
-    background: rgba(0,0,0,0.7);
-    padding: 20px
-    ;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
 }
 
 

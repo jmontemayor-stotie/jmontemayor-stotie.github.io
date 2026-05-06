@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body class="main-page">
+  <nav class="navbar bg-dark  p-4 border-body" data-bs-theme="dark">
+    <a class=" navbar-brand fw-bold" href="#">
+      <h3>animeSearch</h3>
+    </a>
+
+
+    <div class="ms-auto d-flex gap-4">
+
+      <a href="home.html" class="nav-link text-white">Home</a>
+
+      <a href="main page.html" class="nav-link text-white">Main</a>
+
+      <a href="character.html" class="nav-link text-white">Characters</a>
+
+    </div>
+  </nav>
+
+  <div class="hero-section d-flex justify-content-center align-items-center">
+
+
+    <div class="col-12 col-md-10 col-lg-6">
+
+      <div class="glass-card text-center p-4">
+
+        <h5 class=" text-white mb-3">animeSearch</h5>
+
+        <div class=" d-flex flex-column align-items-center  gap-3">
+
+          <input id="searchInput" class="form-control  w-75 text-center" placeholder="searchAnime">
+
+          <button class=" btn btn-light w-50" onclick="searchAnime()">
+            search
+          </button>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-4" id="defaultContainer">
+    <div class="row" id="defaultAnime"></div>
+  </div>
+  
+  <div class="container mt-4" id="resultsContainer" style="display: none;">
+    <div class="row" id="results"></div>
+  </div>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+
+  <script>
+    async function loadDefaultAnime() {
+      const res = await fetch("https://api.jikan.moe/v4/anime?q=one piece");
+      const data = await res.json();
+
+      let output = "";
+
+      data.data.slice(0, 8).forEach(anime => {
+        output += `
+      <div class="col-6 col-md-4 col-lg-3 mb-4">
+        <div class="card">
+          <img src="${anime.images.jpg.image_url}" class="card-img-top">
+          <div class="card-body text-center">
+            <h6>${anime.title}</h6>
+          </div>
+        </div>
+      </div>
+    `;
+      });
+
+      document.getElementById("defaultAnime").innerHTML = output;
+    }
+
+    loadDefaultAnime();
+
+    function searchAnime() {
+
+      const query = document.getElementById("searchInput").value;
+
+      if (!query) return;
+
+      document.getElementById("defaultContainer").style.display = "none";
+      document.getElementById("resultsContainer").style.display = "block";
+
+      const results = document.getElementById("results");
+      results.innerHTML= "loading....";
+
+      results.innerHTML = "<p class='text-white'>Loading...</p>";
+
+      fetch(`https://api.jikan.moe/v4/anime?q=${query}`)
+        .then(res => res.json())
+        .then(data => {
+
+          let output = "";
+
+          data.data.forEach(anime => {
+
+            output += `
+                    <div class=" col-6 col-md-4 col-lg-3 mb-4">
+                        <div class="card h-100 shadow">
+
+                            <img src="${anime.images.jpg.image_url}" class="card-img-top">
+                            <div class="card-body text-center">
+                              <h6 class="card-title">${anime.title}</h6>
+                            </div>
+                        </div>
+                    </div>
+                `;
+          });
+
+          results.innerHTML = output;
+        })
+        .catch(error => {
+          console.log(error);
+          results.innerHTML = "failed to load anime";
+        });
+
+
+    }
+
+
+
+  </script>
+</body>
+
+</html>
