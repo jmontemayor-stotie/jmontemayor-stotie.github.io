@@ -16,9 +16,9 @@
 <body>
 
 
-     <nav class="navbar bg-dark  p-4 border-body" data-bs-theme="dark">
+    <nav class="navbar bg-dark  p-4 border-body" data-bs-theme="dark">
 
-        <a class="navbar-brand fw-bold" href="index.html">
+        <a class="navbar-brand fw-bold">
             animeSearch
         </a>
 
@@ -74,7 +74,7 @@
                     apiData.data.forEach(movie => {
 
                         outputHtml += `
-                    <div class="col-md-3 mb-4">
+                    <div class=" col-6 col-md-3 col-sm-3 mb-4">
                         <div class="card h-100 shadow"
                              onclick="alert('${movie.title}')">
 
