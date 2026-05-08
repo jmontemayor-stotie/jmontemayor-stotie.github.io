@@ -14,53 +14,37 @@
 </head>
 
 <body>
-<nav class="navbar navbar-dark bg-dark px-4 py-3">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-4">
 
-    <div class="container-fluid">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">
+                <div class=h3>animeSearch</h3>
+                </div>
+            </a>
 
-        <!-- Logo -->
-        <a class="navbar-brand fw-bold" href="#">
-            animeSearch
-        </a>
 
-        <!-- Hamburger -->
-        <div class="dropdown ms-auto">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
 
-            <button class="btn btn-dark border-0"
-                    type="button"
-                    data-bs-toggle="dropdown">
-
-                ☰
+                <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Dropdown Menu -->
-            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
 
-                <li>
-                    <a class="dropdown-item" href="home.html">
-                        Home
-                    </a>
-                </li>
+            <div class="collapse navbar-collapse" id="navbarMenu">
 
-                <li>
-                    <a class="dropdown-item" href="mainPage.html">
-                        Main
-                    </a>
-                </li>
+                <div class="ms-auto d-flex flex-column flex-lg-row gap-4">
 
-                <li>
-                    <a class="dropdown-item" href="character.html">
-                        Characters
-                    </a>
-                </li>
+                    <a href="home.html" class="nav-link text-white">Home</a>
 
-            </ul>
+                    <a href="mainPage.html" class="nav-link text-white">Main</a>
 
+                    <a href="character.html" class="nav-link text-white">Characters</a>
+
+                </div>
+
+            </div>
         </div>
-
-    </div>
-
-</nav>
+    </nav>
 
 
 
@@ -72,7 +56,8 @@
                 <h1 style="color: white;">One Piece Movies</h1>
             </div>
             <div>
-                <p style="color: white;">Watch legendary One Piece films</p>
+                <div class=p style="color: white;">Watch legendary One Piece films</p>
+                </div>
             </div>
         </div>
     </div>

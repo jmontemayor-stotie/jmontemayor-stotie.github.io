@@ -16,33 +16,33 @@
 <body style="background-color: rgb(241, 228, 228); margin: 0%; font-family: Arial, Helvetica, sans-serif;">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-4">
-
-        <a class="navbar-brand fw-bold" href="#">
-            <h3>animeSearch</h3>
-        </a>
-
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
-            aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
-
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">
+                <h3>animeSearch</h3>
+            </a>
 
 
-        <div class="collapse navbar-collapse" id="navbarMenu">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
 
-            <div class="ms-auto d-flex flex-column flex-lg-row gap-4">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <a href="home.html" class="nav-link text-white">Home</a>
 
-                <a href="mainPage.html" class="nav-link text-white">Main</a>
+            <div class="collapse navbar-collapse" id="navbarMenu">
 
-                <a href="character.html" class="nav-link text-white">Characters</a>
+                <div class="ms-auto d-flex flex-column flex-lg-row gap-4">
+
+                    <a href="home.html" class="nav-link text-white">Home</a>
+
+                    <a href="mainPage.html" class="nav-link text-white">Main</a>
+
+                    <a href="character.html" class="nav-link text-white">Characters</a>
+
+                </div>
 
             </div>
-
         </div>
-
     </nav>
 
 
@@ -101,7 +101,7 @@
                             <img src="${character.images.jpg.image_url}" class="card-img-top" >
 
                             <div class="card-body text-center">
-                                < div class = h6>${character.name}</h6></div>
+                                <div class= h6> ${character.name}</h6></div>
                             </div>
 
                         </div>
