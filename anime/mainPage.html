@@ -11,22 +11,35 @@
 </head>
 
 
-<body class="main-page">
-  <nav class="navbar bg-dark  p-4 border-body" data-bs-theme="dark">
-    <a class=" navbar-brand fw-bold" >
-      <h3>animeSearch</h3>
+<body class="mainPage">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-4">
+
+    <a class="navbar-brand fw-bold" href="#">
+      <h3>animeSearch</h3> 
     </a>
 
 
-    <div class="ms-auto d-flex gap-4">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+      aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
 
-      <a href="home.html" class="nav-link text-white">Home</a>
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <a href="main page.html" class="nav-link text-white">Main</a>
 
-      <a href="character.html" class="nav-link text-white">Characters</a>
+    <div class="collapse navbar-collapse" id="navbarMenu">
+
+      <div class="ms-auto d-flex flex-column flex-lg-row gap-4">
+
+        <a href="home.html" class="nav-link text-white">Home</a>
+
+        <a href="mainPage.html" class="nav-link text-white">Main</a>
+
+        <a href="character.html" class="nav-link text-white">Characters</a>
+
+      </div>
 
     </div>
+
   </nav>
 
   <div class="hero-section d-flex justify-content-center align-items-center">
@@ -81,7 +94,7 @@
         <div class="card">
           <img src="${anime.images.jpg.image_url}" class="card-img-top">
           <div class="card-body text-center">
-            <h6>${anime.title}</h6>
+            <div class = h6>${anime.title}</div>
           </div>
         </div>
       </div>
@@ -107,7 +120,6 @@
       document.getElementById("resultsContainer").style.display = "block";
 
       const results = document.getElementById("results");
-      results.innerHTML = "loading....";
 
       results.innerHTML = "<p class='text-white'>Loading...</p>";
 
@@ -125,7 +137,7 @@
 
                             <img src="${anime.images.jpg.image_url}" class="card-img-top">
                             <div class="card-body text-center">
-                              <h6 class="card-title">${anime.title}</h6>
+                              <div class = h6 class="card-title">${anime.title}</h6></div>
                             </div>
                         </div>
                     </div>
