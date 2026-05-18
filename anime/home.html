@@ -40,7 +40,12 @@
 
                     <a href="character.html" class="nav-link text-white">Characters</a>
 
+                    <button id="modeBtn" onclick="switchTheme()" class="btn bt-secondary-dark btn-sm m-3">
+                        Dark Mode
+                    </button>
+
                 </div>
+
 
             </div>
         </div>
@@ -119,8 +124,28 @@
 
         loadOnePieceMovies();
 
+        var mode = "Light"
+        var body = document.getElementById("body");
+        var modeBtn = document.getElementById("modeBtn");
+
+        var mode = body.setAttribute(data - bs - theme) === "Dark" ? "Dark" : "Light";
+        modeBtn.innerText = mode === "Dark" ? "Light Mode" : "Dark Mode";
+
+        function switchTheme() {
+            if (mode == "Light") {
+                mode = "Dark";
+                modeBtn.innerHTML = "Light mode"
+            } else {
+                mode = "Light";
+                modeBtn.innerHTML = "Dark mode"
+            }
+            body.setAttribute("data-bs-theme", mode.toLowerCase());
+
+        }
+
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 
