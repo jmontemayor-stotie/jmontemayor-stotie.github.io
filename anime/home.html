@@ -18,36 +18,36 @@
 
         <div class="container-fluid">
             <a class="navbar-brand fw-bold" href="#">
-                <div class=h3>animeSearch</h3>
-                </div>
-            </a>
+                <div class="h3">animeSearch</div>
+        </div>
+        </a>
 
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
-                aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+            aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
 
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
 
-            <div class="collapse navbar-collapse" id="navbarMenu">
+        <div class="collapse navbar-collapse" id="navbarMenu">
 
-                <div class="ms-auto d-flex flex-column flex-lg-row gap-4">
+            <div class="ms-auto d-flex flex-column flex-lg-row gap-4">
 
-                    <a href="home.html" class="nav-link text-white">Home</a>
+                <a href="home.html" class="nav-link text-white">Home</a>
 
-                    <a href="mainPage.html" class="nav-link text-white">Main</a>
+                <a href="mainPage.html" class="nav-link text-white">Main</a>
 
-                    <a href="character.html" class="nav-link text-white">Characters</a>
+                <a href="character.html" class="nav-link text-white">Characters</a>
 
-                    <button id="modeBtn" onclick="switchTheme()" class="btn btn-secondary  btn-sm m-3">
-                        Dark Mode
-                    </button>
-
-                </div>
-
+                <button id="modeBtn" onclick="switchTheme()" class="btn btn-secondary  btn-sm m-3">
+                    Dark Mode
+                </button>
 
             </div>
+
+
+        </div>
         </div>
     </nav>
 
@@ -61,10 +61,10 @@
                 <h1 style="color: white;">One Piece Movies</h1>
             </div>
             <div>
-                <div class=p style="color: white;">Watch legendary One Piece films</p>
-                </div>
+                <p style="color: white;">Watch legendary One Piece films</p>
             </div>
         </div>
+    </div>
     </div>
 
 
@@ -86,61 +86,99 @@
 
 
 
-        const loadOnePieceMovies = () => {
+        const loadOnePieceMovies = async () => {
+            const movieContainer = document.getElementById("movieContainer");
 
-            fetch("https://api.jikan.moe/v4/anime?q=One%20Piece%20Film&sfw")
-                .then(response => response.json())
-                .then(apiData => {
+            movieContainer.innerHTML = "<p>Loading movies...</p>";
 
-                    let outputHtml = "";
+            try {
+                const response = await fetch(
+                    "https://jikan.lucashdo.com/v1/anime?q=One%20Piece%20Film&type=movie"
+                );
 
-                    apiData.data.forEach(movie => {
+                const apiData = await response.json();
 
-                        outputHtml += `
-                    <div class=" col-6 col-md-3 col-sm-3 mb-4">
-                        <div class="card h-100 shadow"
-                             onclick="alert('${movie.title}')">
+                if (!response.ok) {
+                    throw new Error(
+                        `API error: ${response.status} - ${JSON.stringify(apiData)}`
+                    );
+                }
 
-                            <img src="${movie.images.jpg.image_url}" 
-                                 class="card-img-top">
+                console.log("API response:", apiData);
+                console.log("First movie data:", apiData.data?.[0]);
 
-                            <div class="card-body text-center">
-                               <div class = h6>${movie.title}</h6></div> 
-                            </div>
+                const movies = Array.isArray(apiData.data)
+                    ? apiData.data
+                    : [];
 
+                if (movies.length === 0) {
+                    movieContainer.innerHTML = "<p>No movies found.</p>";
+                    return;
+                }
+
+                movieContainer.innerHTML = movies.map(movie => {
+                    const title = movie.title || "Untitled";
+                    const imageUrl =
+                        movie.images?.jpg?.large_image_url ||
+                        movie.images?.jpg?.image_url ||
+                        movie.images?.webp?.large_image_url ||
+                        movie.images?.webp?.image_url ||
+                        movie.poster ||
+                        movie.image_url ||
+                        "";
+
+                    return `
+                <div class="col-6 col-md-3 mb-4">
+                    <div class="card h-100 shadow"
+                         onclick="alert(${JSON.stringify(title)})">
+
+                        ${imageUrl
+                            ? `<img src="${imageUrl}"
+                                        class="card-img-top"
+                                        alt="${title}"
+                                        loading="lazy">`
+                            : `<div class="p-4">No image available</div>`
+                        }
+
+                        <div class="card-body text-center">
+                            <h6>${title}</h6>
                         </div>
                     </div>
-                `;
-                    });
+                </div>
+            `;
+                }).join("");
 
-                    document.getElementById("movieContainer").innerHTML = outputHtml;
-                })
-                .catch(error => {
-                    console.log(error);
-                    document.getElementById("movieContainer").innerHTML =
-                        "<p>Failed to load movies</p>";
-                });
+            } catch (error) {
+                console.error("Movie API error:", error);
+                movieContainer.innerHTML = `
+            <p class="text-danger">
+                Unable to load movies. Open the browser console to see the error.
+            </p>
+        `;
+            }
         };
+
 
         loadOnePieceMovies();
 
-        var mode = "Light"
         var body = document.getElementById("body");
         var modeBtn = document.getElementById("modeBtn");
 
-        var mode = body.setAttribute(data - bs - theme) === "Dark" ? "Dark" : "Light";
+        var mode = body.getAttribute("data-bs-theme") === "dark"
+            ? "Dark"
+            : "Light";
+
         modeBtn.innerText = mode === "Dark" ? "Light Mode" : "Dark Mode";
 
         function switchTheme() {
-            if (mode == "Light") {
+            if (mode === "Light") {
                 mode = "Dark";
-                modeBtn.innerHTML = "Light mode"
             } else {
                 mode = "Light";
-                modeBtn.innerHTML = "Dark mode"
             }
-            body.setAttribute("data-bs-theme", mode.toLowerCase());
 
+            body.setAttribute("data-bs-theme", mode.toLowerCase());
+            modeBtn.innerText = mode === "Dark" ? "Light Mode" : "Dark Mode";
         }
 
     </script>

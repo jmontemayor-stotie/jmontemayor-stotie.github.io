@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Jodi Montemayor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <a class="logo" href="index.html">Jodi.</a>
+
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mainNav"
+        type="button"
+    >
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav class="nav-links" id="mainNav" aria-label="Main navigation">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<main class="page-section">
+    <div class="container">
+        <p class="eyebrow">Let's connect</p>
+        <h1 class="page-heading">Contact Me</h1>
+        <p class="page-intro">
+            Feel free to reach out if you would like to connect
+            or learn more about my projects.
+        </p>
+
+        <section class="card contact-card">
+            <h3>Email</h3>
+            <p>
+                <a href="mailto:jodimontemayor041@gmail.com">
+                    jodimontemayor041@gmail.com
+                </a>
+            </p>
+
+            <h3>GitHub</h3>
+            <p>
+                <a
+                    href="https://github.com/YOUR-USERNAME"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Visit my GitHub profile
+                </a>
+            </p>
+
+            <h3>Phone</h3>
+            <p>09123456789</p>
+        </section>
+    </div>
+</main>
+
+<footer class="footer">
+    <p>&copy; 2026 Jodi Montemayor. All rights reserved.</p>
+</footer>
+
+<script>
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNav = document.getElementById("mainNav");
+
+    menuToggle.addEventListener("click", function () {
+        const isOpen = mainNav.classList.toggle("open");
+
+        menuToggle.setAttribute("aria-expanded", isOpen);
+        menuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Close navigation menu" : "Open navigation menu"
+        );
+    });
+
+    mainNav.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            mainNav.classList.remove("open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Open navigation menu");
+        });
+    });
+</script>
+
+</body>
+</html>
+
+

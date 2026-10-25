@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Jodi Montemayor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <a class="logo" href="index.html">Jodi.</a>
+
+    <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mainNav"
+        type="button"
+    >
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav class="nav-links" id="mainNav" aria-label="Main navigation">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<main class="page-section">
+    <div class="container">
+        <p class="eyebrow">Get to know me</p>
+        <h1 class="page-heading">About Me</h1>
+        <p class="page-intro">
+            A little about my background and my journey in technology.
+        </p>
+
+        <article class="card text-card">
+            <h3>Hello, I'm Jodi!</h3>
+            <p>
+                I am an Information Technology student at the
+                Polytechnic University of the Philippines.
+                I am still learning and improving my skills in
+                web development, programming, and website design.
+            </p>
+            <p>
+                Through my school activities and projects, I am
+                gaining experience in building websites, solving
+                problems, and understanding how different
+                technologies work together.
+            </p>
+            <p>
+                My goal is to continue learning, create useful
+                projects, and become more confident in my skills
+                as I gain experience.
+            </p>
+        </article>
+
+        <section class="page-section">
+            <h2 class="page-heading">Education</h2>
+
+            <article class="card text-card">
+                <span class="tag">Current Education</span>
+                <h3>Polytechnic University of the Philippines</h3>
+                <p>Diploma in Information Technology</p>
+                <p>
+                    Learning programming, database concepts,
+                    web development, and other IT-related subjects.
+                </p>
+            </article>
+        </section>
+    </div>
+</main>
+
+<footer class="footer">
+    <p>&copy; 2026 Jodi Montemayor. All rights reserved.</p>
+</footer>
+
+<script>
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNav = document.getElementById("mainNav");
+
+    menuToggle.addEventListener("click", function () {
+        const isOpen = mainNav.classList.toggle("open");
+
+        menuToggle.setAttribute("aria-expanded", isOpen);
+        menuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Close navigation menu" : "Open navigation menu"
+        );
+    });
+
+    mainNav.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            mainNav.classList.remove("open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Open navigation menu");
+        });
+    });
+</script>
+
+</body>
+</html>
