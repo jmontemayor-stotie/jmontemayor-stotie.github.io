@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 
 <header class="navbar">
     <a class="logo" href="index.html">Jodi.</a>
@@ -35,7 +33,6 @@
     </nav>
 </header>
 
-
 <main>
 
     <!-- HOME / HERO -->
@@ -43,22 +40,16 @@
         <div class="container hero-content">
             <div>
                 <p class="eyebrow">Hello, welcome to my portfolio</p>
-
                 <h1>Hi, I'm Jodi Montemayor.</h1>
-
                 <p class="hero-description">
                     I'm an IT student and aspiring web developer.
                     I'm learning, building projects, and improving
                     my skills one step at a time.
                 </p>
-
-                <a class="button" href="projects.html">
-                    Explore My Projects
-                </a>
-
-                <a class="button button-outline" href="about.html">
-                    About Me
-                </a>
+                <div class="hero-buttons">
+                    <a class="button" href="projects.html">Explore My Projects</a>
+                    <a class="button button-outline" href="about.html">About Me</a>
+                </div>
             </div>
 
             <div class="hero-photo">
@@ -78,17 +69,13 @@
         <div class="container">
             <p class="eyebrow">Get to know me</p>
             <h2>A little about myself</h2>
-
             <p class="section-description">
                 I am a Diploma in Information Technology student
                 at the Polytechnic University of the Philippines.
                 I enjoy learning about web development and creating
                 websites where I can apply what I have learned.
             </p>
-
-            <a class="text-link" href="about.html">
-                More About Me →
-            </a>
+            <a class="text-link" href="about.html">More About Me →</a>
         </div>
     </section>
 
@@ -97,7 +84,6 @@
         <div class="container">
             <p class="eyebrow">My work</p>
             <h2>Projects I'm proud of</h2>
-
             <p class="section-description">
                 Here are some of the websites and school projects
                 I have worked on while developing my skills.
@@ -106,32 +92,32 @@
             <div class="project-grid">
 
                 <article class="project-card">
-                    <h3>iPhone XR Website</h3>
-                    <p>
-                        A website showcasing the features and design
-                        of the iPhone XR.
-                    </p>
-                    <a href="A02/website.html" class="text-link">
-                        View Project →
-                    </a>
+                    <div class="project-image-container">
+                        <!-- PALITAN ANG src="images/iphone-xr.jpg" SA TAMANG PATH NG SCREENSHOT MO -->
+                        <img src="images/iphone-xr.jpg" alt="iPhone XR Website Screenshot" class="project-thumbnail" onerror="this.src='https://via.placeholder.com/600x337?text=iPhone+XR+Project'">
+                    </div>
+                    <div class="project-body">
+                        <h3>iPhone XR Website</h3>
+                        <p>A website showcasing the features and design of the iPhone XR.</p>
+                        <a href="A02/website.html" class="text-link">View Project →</a>
+                    </div>
                 </article>
 
                 <article class="project-card">
-                    <h3>Anime Website</h3>
-                    <p>
-                        A school project inspired by anime websites
-                        that uses an API.
-                    </p>
-                    <a href="anime/mainPage.html" class="text-link">
-                        View Project →
-                    </a>
+                    <div class="project-image-container">
+                        <!-- PALITAN ANG src="images/anime-site.jpg" SA TAMANG PATH NG SCREENSHOT MO -->
+                        <img src="images/anime-site.jpg" alt="Anime Website Screenshot" class="project-thumbnail" onerror="this.src='https://via.placeholder.com/600x337?text=Anime+Website+Project'">
+                    </div>
+                    <div class="project-body">
+                        <h3>Anime Website</h3>
+                        <p>A school project inspired by anime websites that uses an API.</p>
+                        <a href="anime/mainPage.html" class="text-link">View Project →</a>
+                    </div>
                 </article>
 
             </div>
 
-            <a class="button section-button" href="projects.html">
-                View All Projects
-            </a>
+            <a class="button section-button" href="projects.html">View All Projects</a>
         </div>
     </section>
 
@@ -140,7 +126,6 @@
         <div class="container">
             <p class="eyebrow">My learning journey</p>
             <h2>Skills I'm developing</h2>
-
             <div class="skill-list">
                 <span>HTML</span>
                 <span>CSS</span>
@@ -149,10 +134,7 @@
                 <span>MySQL</span>
                 <span>Git and GitHub</span>
             </div>
-
-            <a class="text-link" href="skills.html">
-                Explore My Skills →
-            </a>
+            <a class="text-link" href="skills.html">Explore My Skills →</a>
         </div>
     </section>
 
@@ -161,15 +143,11 @@
         <div class="container">
             <p class="eyebrow">Get in touch</p>
             <h2>Thank you for visiting!</h2>
-
             <p class="section-description">
                 I'm still learning and growing as a developer.
                 Feel free to explore my work and learn more about me.
             </p>
-
-            <a class="button" href="contact.html">
-                Contact Me
-            </a>
+            <a class="button" href="contact.html">Contact Me</a>
         </div>
     </section>
 
@@ -180,29 +158,30 @@
 </footer>
 
 <script>
-    const menuToggle = document.getElementById("menuToggle");
-    const mainNav = document.getElementById("mainNav");
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.getElementById("menuToggle");
+        const mainNav = document.getElementById("mainNav");
 
-    menuToggle.addEventListener("click", function () {
-        const isOpen = mainNav.classList.toggle("open");
+        if (menuToggle && mainNav) {
+            menuToggle.addEventListener("click", function () {
+                const isOpen = mainNav.classList.toggle("open");
+                menuToggle.setAttribute("aria-expanded", String(isOpen));
+                menuToggle.setAttribute(
+                    "aria-label",
+                    isOpen ? "Close navigation menu" : "Open navigation menu"
+                );
+            });
 
-        menuToggle.setAttribute("aria-expanded", isOpen);
-        menuToggle.setAttribute(
-            "aria-label",
-            isOpen ? "Close navigation menu" : "Open navigation menu"
-        );
-    });
-
-    mainNav.querySelectorAll("a").forEach(function (link) {
-        link.addEventListener("click", function () {
-            mainNav.classList.remove("open");
-            menuToggle.setAttribute("aria-expanded", "false");
-            menuToggle.setAttribute("aria-label", "Open navigation menu");
-        });
+            mainNav.querySelectorAll("a").forEach(function (link) {
+                link.addEventListener("click", function () {
+                    mainNav.classList.remove("open");
+                    menuToggle.setAttribute("aria-expanded", "false");
+                    menuToggle.setAttribute("aria-label", "Open navigation menu");
+                });
+            });
+        }
     });
 </script>
 
 </body>
 </html>
-
-
