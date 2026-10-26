@@ -1,11 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills | Jodi Montemayor</title>
+    <title>Projects | Jodi Montemayor</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header class="navbar">
@@ -25,19 +27,21 @@
     </button>
 
     <nav class="nav-links" id="mainNav" aria-label="Main navigation">
-        <a href="index.html" aria-current="page">Home</a>
+        <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
+        <a href="projects.html" aria-current="page">Projects</a>
         <a href="skills.html">Skills</a>
         <a href="contact.html">Contact</a>
     </nav>
 </header>
 
-<!-- PROJECT PREVIEW -->
+<main>
+
     <section class="section section-light" id="featured-projects">
         <div class="container">
+
             <p class="eyebrow">My work</p>
-            <h2>Projects I'm proud of</h2>
+            <h1>Projects I'm proud of</h1>
 
             <p class="section-description">
                 Here are some of the websites and school projects
@@ -47,31 +51,77 @@
             <div class="project-grid">
 
                 <article class="project-card">
-                    <h3>iPhone XR Website</h3>
+                    <h2>iPhone XR Website</h2>
+
                     <p>
                         A website showcasing the features and design
                         of the iPhone XR.
                     </p>
-                    <a href="A02\website.html" class="text-link">
+
+                    <a href="./A02/website.html" class="text-link">
                         View Project →
                     </a>
                 </article>
 
                 <article class="project-card">
-                    <h3>Anime Website</h3>
+                    <h2>Anime Website</h2>
+
                     <p>
                         A school project inspired by anime websites
                         that uses an API.
                     </p>
-                    <a href="anime\mainPage.html" class="text-link">
+
+                    <a href="./anime/mainPage.html" class="text-link">
                         View Project →
                     </a>
                 </article>
 
             </div>
 
-            <a class="button section-button" href="projects.html">
-                View All Projects
+            <a class="button section-button" href="index.html">
+                Back to Home
             </a>
+
         </div>
     </section>
+
+</main>
+
+<footer class="footer">
+    <p>&copy; 2026 Jodi Montemayor. All rights reserved.</p>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNav = document.getElementById("mainNav");
+
+    if (!menuToggle || !mainNav) {
+        return;
+    }
+
+    menuToggle.addEventListener("click", function () {
+        const isOpen = mainNav.classList.toggle("open");
+
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Close navigation menu" : "Open navigation menu"
+        );
+    });
+
+    mainNav.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            mainNav.classList.remove("open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute(
+                "aria-label",
+                "Open navigation menu"
+            );
+        });
+    });
+});
+</script>
+
+</body>
+</html>

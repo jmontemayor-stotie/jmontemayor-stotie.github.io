@@ -625,3 +625,62 @@ html {
         grid-template-columns: minmax(0, 1fr);
     }
 }
+
+/* Better spacing and responsiveness on mobile */
+@media (max-width: 768px) {
+    .navbar {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .section {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .project-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    .project-card {
+        width: 100%;
+        min-width: 0;
+        padding: 24px;
+        overflow-wrap: break-word;
+    }
+
+    .project-card h2,
+    .project-card h3,
+    .project-card p {
+        overflow-wrap: break-word;
+    }
+
+    .footer {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+}
+
+@media (max-width: 380px) {
+    .navbar {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .section {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .project-card {
+        padding: 20px;
+    }
+}
