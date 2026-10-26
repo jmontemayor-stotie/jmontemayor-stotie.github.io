@@ -1,99 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skills | Jodi Montemayor</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header class="navbar">
-    <a class="logo" href="index.html">Jodi.</a>
+    <header class="navbar">
+        <a class="logo" href="index.html">Jodi.</a>
 
-    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" type="button">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false"
+            type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
-    <nav class="nav-links" id="mainNav">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="skills.html" aria-current="page">Skills</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-</header>
+        <nav class="nav-links" id="mainNav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="skills.html" aria-current="page">Skills</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
-<main>
-    <section class="section">
-        <div class="container">
-            <p class="eyebrow">What I'm Learning</p>
-            <h1>My Skills</h1>
-            <p class="section-description">
-                Technologies and tools I have practiced through school activities and personal projects.
-            </p>
-
-            <article class="card">
-                <h3>Web Development</h3>
-                <p style="margin-bottom: 12px;">Building and styling web pages.</p>
-                <div class="skill-list" style="margin-bottom: 25px;">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                </div>
-
-                <h3>Programming & Databases</h3>
-                <p style="margin-bottom: 12px;">Practicing application logic and data management.</p>
-                <div class="skill-list" style="margin-bottom: 25px;">
-                    <span>PHP</span>
-                    <span>SQL</span>
-                    <span>MySQL</span>
-                </div>
-
-                <h3>Tools</h3>
-                <p style="margin-bottom: 12px;">Tools used for coding and managing projects.</p>
-                <div class="skill-list" style="margin-bottom: 25px;">
-                    <span>Git</span>
-                    <span>GitHub</span>
-                    <span>Visual Studio Code</span>
-                </div>
-
-                <h3>Currently Improving</h3>
-                <p>
-                    I am continuing to practice responsive layouts, JavaScript, debugging, and writing cleaner code.
+    <main>
+        <section class="section">
+            <div class="container">
+                <p class="eyebrow">What I'm Learning</p>
+                <h1>My Skills</h1>
+                <p class="section-description">
+                    Technologies and tools I have practiced through school activities and personal projects.
                 </p>
-            </article>
 
-        </div>
-    </section>
-</main>
+                <article class="card">
+                    <h3>Web Development</h3>
+                    <p style="margin-bottom: 12px;">Building and styling web pages.</p>
+                    <div class="skill-list" style="margin-bottom: 25px;">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
 
-<footer class="footer">
-    <p>&copy; 2026 Jodi Montemayor. All rights reserved.</p>
-</footer>
+                    <h3>Programming & Databases</h3>
+                    <p style="margin-bottom: 12px;">Practicing application logic and data management.</p>
+                    <div class="skill-list" style="margin-bottom: 25px;">
+                        <span>SQL</span>
+                        <span>MySQL</span>
+                    </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const menuToggle = document.getElementById("menuToggle");
-    const mainNav = document.getElementById("mainNav");
+                    <h3>Tools</h3>
+                    <p style="margin-bottom: 12px;">Tools used for coding and managing projects.</p>
+                    <div class="skill-list" style="margin-bottom: 25px;">
+                        <span>GitHub</span>
+                        <span>Visual Studio Code</span>
+                    </div>
 
-    if (menuToggle && mainNav) {
-        menuToggle.addEventListener("click", function () {
-            const isOpen = mainNav.classList.toggle("open");
-            menuToggle.setAttribute("aria-expanded", String(isOpen));
+                    <h3>Currently Improving</h3>
+                    <p>
+                        I am continuing to practice responsive layouts, JavaScript, debugging, and writing cleaner code.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.getElementById("menuToggle");
+            const mainNav = document.getElementById("mainNav");
+
+            if (menuToggle && mainNav) {
+                menuToggle.addEventListener("click", function () {
+                    const isOpen = mainNav.classList.toggle("open");
+                    menuToggle.setAttribute("aria-expanded", String(isOpen));
+                });
+
+                mainNav.querySelectorAll("a").forEach(function (link) {
+                    link.addEventListener("click", function () {
+                        mainNav.classList.remove("open");
+                        menuToggle.setAttribute("aria-expanded", "false");
+                    });
+                });
+            }
         });
-
-        mainNav.querySelectorAll("a").forEach(function (link) {
-            link.addEventListener("click", function () {
-                mainNav.classList.remove("open");
-                menuToggle.setAttribute("aria-expanded", "false");
-            });
-        });
-    }
-});
-</script>
+    </script>
 
 </body>
+
 </html>

@@ -1,93 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Jodi Montemayor</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header class="navbar">
-    <a class="logo" href="index.html">Jodi.</a>
+    <header class="navbar">
+        <a class="logo" href="index.html">Jodi.</a>
 
-    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false" type="button">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false"
+            aria-controls="mainNav" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
-    <nav class="nav-links" id="mainNav">
-        <a href="index.html" aria-current="page">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="skills.html">Skills</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-</header>
+        <nav class="nav-links" id="mainNav" aria-label="Main navigation">
+            <a href="index.html" aria-current="page">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="skills.html">Skills</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
-<main>
+    <main>
 
-    <!-- HOME / HERO -->
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <div>
-                <p class="eyebrow">Hello, welcome to my portfolio</p>
-                <h1>Hi, I'm Jodi Montemayor.</h1>
-                <p class="hero-description">
-                    I'm an IT student and aspiring web developer. I'm learning, building projects, and improving my skills one step at a time.
+        <!-- HOME / HERO -->
+        <section class="hero" id="home">
+            <div class="container hero-content">
+                <div>
+                    <h1>Hi, Welcome!</h1>
+                    <p class="hero-description">
+                        Hi, I'm Jodi Montemayor.
+                        I'm an IT student and aspiring web developer. I'm learning, building projects, and improving my
+                        skills one step at a time.
+                    </p>
+                    <div class="hero-buttons">
+                        <a class="button" href="projects.html">Explore My Projects</a>
+                        <a class="button button-outline" href="about.html">About Me</a>
+                    </div>
+                </div>
+
+                <!-- PROFILE BOX CARD -->
+                <div class="hero-profile-card">
+                    <div class="hero-photo-wrap">
+                        <img class="profile-photo" src="image/Profile.png" alt="Jodi Montemayor"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+                    </div>
+                    <div class="hero-profile-info">
+                        <h2>Jodi Montemayor</h2>
+                        <p>IT Student & Developer</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTRODUCTION -->
+        <section class="section" id="introduction">
+            <div class="container">
+                <p class="eyebrow"> My self </p>
+                <h2>A little about myself</h2>
+                <p class="section-description">
+                    Want to know a little more about me? Just click the arrow below! </p>
+                <p> Hey there! How are you? Wait, why are you here? Who invited you? Just kidding!</p>
+                <p> Anyway, I'm Jodi Montemayor, currently a college student at PUP, taking up a Diploma in Information
+                    Technology.</p>
+
+                <p> Why? Honestly, I'm not really sure either. Maybe this is just where life has led me. I'm currently
+                    learning more and more about this course, discovering new things, and slowly improving my skills
+                    along the way..</p>
+
+                <a class="text-link" href="about.html">More About Me →</a>
+            </div>
+        </section>
+
+        <!-- PROJECT PREVIEW -->
+        <section class="section" id="featured-projects" style="background-color: rgba(255, 255, 255, 0.4);">
+            <div class="container">
+                <p class="eyebrow">My work</p>
+                <h2>Projects I'm proud of</h2>
+                <p class="section-description">
+                    Here are some of the websites and school projects I have worked on while developing my skills.
                 </p>
-                <div class="hero-buttons">
-                    <a class="button" href="projects.html">Explore My Projects</a>
-                    <a class="button button-outline" href="about.html">About Me</a>
+
+                <div class="card-grid">
+                    <article class="card">
+                        <div class="project-image-container">
+                            <img src="image/iphone-xr.png" alt="iPhone XR Website Screenshot" class="project-thumbnail"
+                                onerror="this.src='https://via.placeholder.com/600x337?text=iPhone+XR+Project'">
+                        </div>
+                        <h3>iPhone XR Website</h3>
+                        <p>A website showcasing the features and design of the iPhone XR.</p>
+                        <a href="A02/website.html" class="text-link">View Project →</a>
+                    </article>
+
+                    <article class="card">
+                        <div class="project-image-container">
+                            <img src="image/animeSearch.png" alt="Anime Website Screenshot" class="project-thumbnail"
+                                onerror="this.src='https://via.placeholder.com/600x337?text=Anime+Website+Project'">
+                        </div>
+                        <h3>Anime Website</h3>
+                        <p>A school project inspired by anime websites that uses an API.</p>
+                        <a href="anime/mainPage.html" class="text-link">View Project →</a>
+                    </article>
                 </div>
+
+                <a class="button" href="projects.html" style="margin-top: 25px;">View All Projects</a>
             </div>
+        </section>
 
-            <!-- PROFILE BOX CARD WITH PHOTO AND NAME AT THE BOTTOM -->
-            <div class="hero-profile-card">
-                <div class="hero-photo-wrap">
-                    <img
-                        class="profile-photo"
-                        src="images/profile.jpg"
-                        alt="Jodi Montemayor"
-                        onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
-                    >
-                    <div class="profile-fallback">JM</div>
+        <!-- SKILLS PREVIEW -->
+        <section class="section" id="skills-preview">
+            <div class="container">
+                <p class="eyebrow">My learning journey</p>
+                <h2>Skills I'm developing</h2>
+                <div class="skill-list">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>MySQL</span>
                 </div>
-                <div class="hero-profile-info">
-                    <h2>Jodi Montemayor</h2>
-                    <p>IT Student & Developer</p>
-                </div>
+                <a class="text-link" href="skills.html">Explore My Skills →</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-</main>
+        <!-- CONTACT PREVIEW -->
+        <section class="section" id="contact-preview" style="background-color: rgba(255, 255, 255, 0.4);">
+            <div class="container">
+                <p class="eyebrow">Get in touch</p>
+                <h2>Thank you for visiting!</h2>
+                <p class="section-description">
+                    I'm still learning and growing as a developer. Feel free to explore my work and learn more about me.
+                </p>
+                <a class="button" href="contact.html">Contact Me</a>
+            </div>
+        </section>
 
-<footer class="footer">
-    <p>&copy; 2026 Jodi Montemayor. All rights reserved.</p>
-</footer>
+    </main>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const menuToggle = document.getElementById("menuToggle");
-    const mainNav = document.getElementById("mainNav");
+    <footer class="footer">
+        <p>&copy; All rights reserved.</p>
+    </footer>
 
-    if (menuToggle && mainNav) {
-        menuToggle.addEventListener("click", function () {
-            const isOpen = mainNav.classList.toggle("open");
-            menuToggle.setAttribute("aria-expanded", String(isOpen));
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.getElementById("menuToggle");
+            const mainNav = document.getElementById("mainNav");
+
+            if (menuToggle && mainNav) {
+                menuToggle.addEventListener("click", function () {
+                    const isOpen = mainNav.classList.toggle("open");
+                    menuToggle.setAttribute("aria-expanded", String(isOpen));
+                });
+
+                mainNav.querySelectorAll("a").forEach(function (link) {
+                    link.addEventListener("click", function () {
+                        mainNav.classList.remove("open");
+                        menuToggle.setAttribute("aria-expanded", "false");
+                    });
+                });
+            }
         });
-
-        mainNav.querySelectorAll("a").forEach(function (link) {
-            link.addEventListener("click", function () {
-                mainNav.classList.remove("open");
-                menuToggle.setAttribute("aria-expanded", "false");
-            });
-        });
-    }
-});
-</script>
+    </script>
 
 </body>
+
 </html>

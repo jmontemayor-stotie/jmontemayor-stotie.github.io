@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,108 +10,103 @@
 
 <body>
 
-<header class="navbar">
-    <a class="logo" href="index.html">Jodi.</a>
+    <header class="navbar">
+        <a class="logo" href="index.html">Jodi.</a>
 
-    <button
-        class="menu-toggle"
-        id="menuToggle"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-        aria-controls="mainNav"
-        type="button"
-    >
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open navigation menu" aria-expanded="false"
+            aria-controls="mainNav" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
-    <nav class="nav-links" id="mainNav" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html" aria-current="page">Projects</a>
-        <a href="skills.html">Skills</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-</header>
+        <nav class="nav-links" id="mainNav" aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html" aria-current="page">Projects</a>
+            <a href="skills.html">Skills</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
-<main>
+    <main>
 
-    <section class="section section-light" id="featured-projects">
-        <div class="container">
+        <section class="section section-light" id="featured-projects">
+            <div class="container">
 
-            <p class="eyebrow">My work</p>
-            <h1>Projects I'm proud of</h1>
+                <p class="eyebrow">My work</p>
+                <h1>Projects I'm proud of</h1>
 
-            <p class="section-description">
-                Here are some of the websites and school projects
-                I have worked on while developing my skills.
-            </p>
+                <p class="section-description">
+                    Here are some of the websites and school projects
+                    I have worked on while developing my skills.
+                </p>
 
-            <div class="project-grid">
+                <div class="project-grid">
 
-                <article class="project-card">
-                    <div class="project-image-container">
-                        <!-- PALITAN ANG src="images/iphone-xr.jpg" SA TAMANG PATH NG SCREENSHOT MO -->
-                        <img src="image/iphone-xr.png" alt="iPhone XR Website Screenshot" class="project-thumbnail" onerror="this.src='https://via.placeholder.com/600x337?text=iPhone+XR+Project'">
-                    </div>
-                    <div class="project-body">
-                        <h2>iPhone XR Website</h2>
-                        <p>A website showcasing the features and design of the iPhone XR.</p>
-                        <a href="./A02/website.html" class="text-link">View Project →</a>
-                    </div>
-                </article>
+                    <article class="project-card">
+                        <div class="project-image-container">
+                            <img src="image/iphone-xr.png" alt="iPhone XR Website Screenshot" class="project-thumbnail"
+                                onerror="this.src='https://via.placeholder.com/600x337?text=iPhone+XR+Project'">
+                        </div>
+                        <div class="project-body">
+                            <h2>iPhone XR Website</h2>
+                            <p>A website showcasing the features and design of the iPhone XR.</p>
+                            <a href="./A02/website.html" class="text-link">View Project →</a>
+                        </div>
+                    </article>
 
-                <article class="project-card">
-                    <div class="project-image-container">
-                        <!-- PALITAN ANG src="images/anime-site.jpg" SA TAMANG PATH NG SCREENSHOT MO -->
-                        <img src="image/animeSearch.png" alt="Anime Website Screenshot" class="project-thumbnail" onerror="this.src='https://via.placeholder.com/600x337?text=Anime+Website+Project'">
-                    </div>
-                    <div class="project-body">
-                        <h2>Anime Website</h2>
-                        <p>A school project inspired by anime websites that uses an API.</p>
-                        <a href="./anime/mainPage.html" class="text-link">View Project →</a>
-                    </div>
-                </article>
+                    <article class="project-card">
+                        <div class="project-image-container">
+                            <img src="image/animeSearch.png" alt="Anime Website Screenshot" class="project-thumbnail"
+                                onerror="this.src='https://via.placeholder.com/600x337?text=Anime+Website+Project'">
+                        </div>
+                        <div class="project-body">
+                            <h2>Anime Website</h2>
+                            <p>A school project inspired by anime websites that uses an API.</p>
+                            <a href="./anime/mainPage.html" class="text-link">View Project →</a>
+                        </div>
+                    </article>
+
+                </div>
+
+                <a class="button section-button" href="index.html">Back to Home</a>
 
             </div>
+        </section>
 
-            <a class="button section-button" href="index.html">Back to Home</a>
+    </main>
 
-        </div>
-    </section>
+    <footer class="footer">
+        <p>&copy; All rights reserved.</p>
+    </footer>
 
-</main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.getElementById("menuToggle");
+            const mainNav = document.getElementById("mainNav");
 
-<footer class="footer">
-    <p>&copy; 2026 Jodi Montemayor. All rights reserved.</p>
-</footer>
+            if (menuToggle && mainNav) {
+                menuToggle.addEventListener("click", function () {
+                    const isOpen = mainNav.classList.toggle("open");
+                    menuToggle.setAttribute("aria-expanded", String(isOpen));
+                    menuToggle.setAttribute(
+                        "aria-label",
+                        isOpen ? "Close navigation menu" : "Open navigation menu"
+                    );
+                });
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const menuToggle = document.getElementById("menuToggle");
-    const mainNav = document.getElementById("mainNav");
-
-    if (menuToggle && mainNav) {
-        menuToggle.addEventListener("click", function () {
-            const isOpen = mainNav.classList.toggle("open");
-            menuToggle.setAttribute("aria-expanded", String(isOpen));
-            menuToggle.setAttribute(
-                "aria-label",
-                isOpen ? "Close navigation menu" : "Open navigation menu"
-            );
+                mainNav.querySelectorAll("a").forEach(function (link) {
+                    link.addEventListener("click", function () {
+                        mainNav.classList.remove("open");
+                        menuToggle.setAttribute("aria-expanded", "false");
+                        menuToggle.setAttribute("aria-label", "Open navigation menu");
+                    });
+                });
+            }
         });
-
-        mainNav.querySelectorAll("a").forEach(function (link) {
-            link.addEventListener("click", function () {
-                mainNav.classList.remove("open");
-                menuToggle.setAttribute("aria-expanded", "false");
-                menuToggle.setAttribute("aria-label", "Open navigation menu");
-            });
-        });
-    }
-});
-</script>
+    </script>
 
 </body>
+
 </html>
